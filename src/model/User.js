@@ -1,11 +1,14 @@
-module.exports = class User {
-  id;
-  username;
-  password;
+const mongoose = require("mongoose");
 
-  constructor(id, username, password) {
-    this.id = id;
-    this.username = username;
-    this.password = password;
-  }
-};
+const UserSchema = mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+});
+
+module.exports = mongoose.model("User", UserSchema);

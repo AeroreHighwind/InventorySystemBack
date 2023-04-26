@@ -78,12 +78,13 @@ router.get("/inventory",async (req,res)=>{
 })
 
 router.post("/inventory", async (req, res) => {
-    console.log(req.body.InventoryList)
     const invList = new InventoryList({
-    inventoryList: req.body.inventoryList
+    inventoryList: req.body.inventoryList,
+    date: req.body.date
     });
     try {
       const invListSaved = invList.save();
+      console.log(inventoryList.date);
       res.json(invList);
     } catch (err) {
       res.json({ message: err });
