@@ -12,7 +12,7 @@ router.post("/inventory", async (req, res) => {
   });
   try {
     const invListSaved = invList.save();
-    res.status(200);
+    res.end()
   } catch (err) {
     res.json({ message: err });
   }
