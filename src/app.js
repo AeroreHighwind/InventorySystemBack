@@ -14,7 +14,6 @@ app.use(cors({
 //Import Routes
 const loginRoute = require("./routes/login");
 const inventoryRoute = require("./routes/inventory");
-const createRoute = require("./routes/create");
 //settings
 app.set("port", 3000);
 
@@ -22,8 +21,8 @@ app.set("port", 3000);
 app.use(express.json());
 app.use(loginRoute);
 app.use(inventoryRoute);
-app.use(createRoute);
 app.use(bodyParser.json())
+app.use(express.urlencoded({extended: false}))
 //Routes
 
 app.get("/", (req, res) => {
